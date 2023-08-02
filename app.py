@@ -13,7 +13,7 @@ def index():
 def search():
     q = request.args.get("q")
     if q:
-        shows = db.execute("SELECT * FRFOM shows WHERE title LIKE ? LIMIT 100", "%"+ q +"%")
+        shows = db.execute("SELECT * FROM shows WHERE title LIKE ? LIMIT 100", "%"+ q +"%")
     else:
         shows = []
     return render_template("search.html", shows=shows)
