@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Search any shows</title>
+    </head>
+    <body>
+        <input autocomplete="off" autofocus placeholder="Query" type="search">
+
+        <ul></ul>
+
+        <script>
+
+            let input = document.querySelector('input')
+            input.addEventListener('input', async function(){
+                let responce = await fetch('/search?q='+input.value);
+                let shows = await responce.text();
+                document.querySelector('ul').innerHTML = shows;
+            })
+            
+         </script>
+    </body>
+</html>
